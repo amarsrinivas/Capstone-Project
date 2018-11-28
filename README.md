@@ -1,24 +1,27 @@
 # Capstone-Project
 DSI Capstone Project for Fantasy Football Predictions
 
-Fantasy Football Projections: ​ Are ESPN’s fantasy football projections accurate? Which site has
-the best fantasy football projections?
+Which Fantasy Football Site has the Most Accurate Projections?
 
-Fantasy football is a huge part of sports in the United States, and help casual fans understand
-and become more involved in a sport that they previously didn't feel fully invested in. We base
-our starting lineups based on the projections that were given to us by various fantasy football
-sites, however from week to week there are always projections that fall short and end up
-affecting our chances of winning negatively. This project is an attempt to figure out whether or
-not ESPN gives accurate enough fantasy projections as well as seeing which site among
-various fantasy football sites provides the most accurate projections.
+Project Overview: 
 
-Data: 
+Fantasy Football is a huge point of entry into American football in the United States. It can help casual fans better understand and become more involved in a sport in which they may have previously lacked investment.  Many people playing Fantasy Football set their starting lineups based on the projections given to them by various fantasy football sites. However, on a week to week basis, there are projections that continue to fall short, resulting in a negative impact on people's’ chances of Fantasy Football success. This project is an attempt to determine whether or not ESPN, as well as other various Fantasy Football sites, provide accurate projections. 
 
-At first, I would being to look at relative and absolute error between what the projection for the
-player is and what the actual value of their fantasy points ended up being. I would test for
-statistical significance to measure whether or not there is bias within these projections or not.
-For example, when looking at various projections we can see someone like Matt Forte is
-projected to score 20 points while Ka’Deem Carey (Forte’s backup) was projected to score one
-point. If Forte scores 19 points and Carey scores zero, both players have an absolute error of
-one point. However, one could argue that the near-miss on Forte’s total is more impressive. We
-could also use relative error to measure the amount of biases in these projections.
+Process: 
+
+I began my project by scraping for relevant fantasy data from a variety of fantasy football prognosticators such as ESPN, numberFire, and CBS and examined the relative and absolute errors to quantify the  accuracy of each site. I then moved onto feature engineering to see which features were more important relative to others.
+
+Model: 
+	
+For my model, I used a random forest regressor and then cross-validated with other models (Gradient Boost, for example) and used hyperparameter selections which worked best as opposed to other models  I used the RMSE score in this case to compare the outputs of my model versus the model predicted by ESPN. I then deployed my model on a WebApp using Flask to help recommend which player to start. 
+
+Tools Used: 
+- Flask, Psycopg2, Pandas, NumPy, Scikit-learn, Jupyter Notebook, AWS, EC2, HTML/CSS
+- PCA, Seaborn, EDA, multicollinearity and linear regression, Random Forest, feature engineering
+
+Challenges: 
+- Formatting the data that was scraped in a clean and methodical fashion that made sense relative to the various Fantasy      Football sites. 
+- Finding which features to use based on signal and relevance was also particularly difficult. 
+
+Next Steps: 
+Since the data I am analyzing is only for the 2016 season, my model only predicts point totals from week to week for that season only. For my next step, I intend to scrape for more data from previous seasons so that I can predict point totals from season to season as opposed to week to week and provide more comprehensive predictions. 
